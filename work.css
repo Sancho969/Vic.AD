@@ -198,11 +198,19 @@ footer { text-align: center; padding: 1rem; background: #333; color: white; marg
     display: block;
     text-align: left;
   }
-  .dropdown-content {
-    position: relative; /* dropdown opens below button without overlap */
+   .dropdown-content {
+    position: relative;
+    display: none;       /* hidden by default */
+    background-color: #444;
   }
 
-  .dropdown.active .dropdown-content { max-height: 500px; opacity: 1; }
+  .dropdown.active .dropdown-content {
+    display: block;
+  }
+    .dropdown-content a {
+    display: block;
+    padding: 10px 20px;
+  }
   .menu-toggle { display: block; align-self: flex-end; }
 }
 
