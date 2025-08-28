@@ -26,3 +26,33 @@ function toggleTheme() {
   const checkbox = document.querySelector('input[type="checkbox"]');
   if (checkbox) checkbox.checked = isDark;
 }
+// Hamburger menu toggle
+function toggleMenu() {
+  document.getElementById("navbar").classList.toggle("show");
+}
+
+// Dropdown toggle
+function toggleDropdown(button) {
+  const dropdown = button.parentElement;
+  document.querySelectorAll('.dropdown').forEach(d => {
+    if (d !== dropdown) d.classList.remove('active');
+  });
+  dropdown.classList.toggle('active');
+}
+
+// Dark mode toggle with localStorage
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+  if(document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("darkMode", "on");
+  } else {
+    localStorage.setItem("darkMode", "off");
+  }
+}
+
+// Preserve dark mode on page load
+window.addEventListener("load", () => {
+  if(localStorage.getItem("darkMode") === "on") {
+    document.body.classList.add("dark-mode");
+  }
+});
